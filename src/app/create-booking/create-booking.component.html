@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+        <h5>{{isEdit ? 'Edit Bookings' : 'Create new Bookings'}}</h5>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="row mb-2">
+                <div class="col">
+                    <!--ID-->
+                    <label for="id" class="form-label">Id</label>
+                    <input type="number" name="id" class="form-control" placeholder="Id Number" [(ngModel)]="booking.id" />
+
+                </div>
+                <div class="col">
+                    <!--RoomNumber-->
+                    <label class="form-label">Roomnumber</label>
+                    <input type="number" class="form-control" class="form-control" placeholder="Room Number" name="roomNumber" [(ngModel)]="booking.roomNumber" />
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-4">
+                    <!--Name-->
+                    <label class="form-label">Guest Name</label>
+                    <input type="text" class="form-control" class="form-control" placeholder="Guest Name" name="name" [(ngModel)]="booking.name" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <!--StartDate-->
+                    <label class="form-label">Start Date</label>
+                    <input type="date" class="form-control" class="form-control" placeholder="Start Date" class="form-control" [value]="booking.startDate| date:'yyyy-MM-dd'" (input)="dateChanged($event, true)" />
+
+                </div>
+                <div class="col">
+                    <!--EndDate-->
+                    <label class="form-label">End Date</label>
+                    <input type="date" class="form-control" class="form-control" placeholder="end Date" class="form-control" [value]="booking.endDate | date:'yyyy-MM-dd'" (input)="dateChanged($event, false)" />
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary" (click)="save()">Submit</button>
+    </div>
+
+</div>
